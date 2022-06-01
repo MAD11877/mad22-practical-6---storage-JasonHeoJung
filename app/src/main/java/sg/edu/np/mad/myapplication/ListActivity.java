@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
+    int count = 1;
     private static final String TAG = "ListActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +48,14 @@ public class ListActivity extends AppCompatActivity {
         return value;
     }
     private user createUser(){
-        user user1 = new user();
         int ran1 = randomOTP();
         int ran2 = randomOTP();
-        user1.name = "Name" + ran1;
-        user1.followed = false;
-        user1.description = "Description " + ran2;
+        String name = "Name" + ran1;
+        boolean followed = false;
+        int id = count;
+        String description = "Description " + ran2;
+        count++;
+        user user1 = new user(name, description, id, false);
         return user1;
     }
 }
