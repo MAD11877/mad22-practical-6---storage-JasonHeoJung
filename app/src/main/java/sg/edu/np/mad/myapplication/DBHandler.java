@@ -29,7 +29,7 @@ public class DBHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertUser(user u)
+    public void addUser(user u)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("INSERT INTO User VALUES( \"" + u.name + "\", \"" + u.description + "\", + \"" + u.id + "\", + \"" + u.followed + "\")");
@@ -59,11 +59,11 @@ public class DBHandler extends SQLiteOpenHelper {
     public void updateUser(user u)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE User SET Followed = \""+ u.followed +"\" " +  "WHERE Id = \""+ u.id +"\"");
+        db.execSQL("UPDATE User SET Followed = \""+ u.followed +"\" " +  "WHERE id = \""+ u.id +"\"");
         db.close();
     }
 
-    public int CountUsers()
+    public int Count()
     {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM User", null);

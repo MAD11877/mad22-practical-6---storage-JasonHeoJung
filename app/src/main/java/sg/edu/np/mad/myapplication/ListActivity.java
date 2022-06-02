@@ -21,10 +21,10 @@ public class ListActivity extends AppCompatActivity {
         DBHandler db = new DBHandler(this);
 
         ArrayList<user> userlist = new ArrayList<>();
-        if (db.CountUsers() == 0){
+        if (db.Count() == 0){
             for (int i = 0; i < 20; i++){
                 user newUser = createUser();
-                db.insertUser(newUser);
+                db.addUser(newUser);
             }
         }
 
