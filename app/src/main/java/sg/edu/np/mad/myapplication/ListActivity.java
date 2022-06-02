@@ -5,19 +5,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.app.AlertDialog;
-
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class ListActivity extends AppCompatActivity {
@@ -27,12 +17,19 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        DBHandler db = new DBHandler(this);
+
         ArrayList<user> userlist = new ArrayList<>();
-        for (int i = 0; i < 20; i++){
-            user user1 = createUser();
-            userlist.add(user1);
-            Log.i(TAG, "1");
+        if (db.CountUsers() == 0){
+            for (int i = 0; i < 20; i++){
+                user newUser = createUser();
+                db.insertUser(newUser);
+            }
         }
+
+        userlist = db.getUsers();
+
 
         RecyclerView recyclerView = findViewById(R.id.recycler);
         adapter mAdapter = new adapter(ListActivity.this,userlist);
@@ -42,20 +39,20 @@ public class ListActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
     }
-    private int randomOTP(){
+    private int random(){
         Random ran = new Random();
         int value = ran.nextInt(999999999);
         return value;
     }
     private user createUser(){
-        int ran1 = randomOTP();
-        int ran2 = randomOTP();
+        int ran1 = random();
+        int ran2 = random();
         String name = "Name" + ran1;
         boolean followed = false;
         int id = count;
         String description = "Description " + ran2;
         count++;
-        user user1 = new user(name, description, id, false);
-        return user1;
+        user newUser = new user(name, description, id, false);
+        return newUser;
     }
 }
