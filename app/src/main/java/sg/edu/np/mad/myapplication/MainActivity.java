@@ -3,6 +3,7 @@ package sg.edu.np.mad.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,12 +22,15 @@ public class MainActivity extends AppCompatActivity {
         DBHandler db = new DBHandler(this);
 
         Button follow = findViewById(R.id.follow);
+        Button message = findViewById(R.id.message);
         TextView name = findViewById(R.id.textView2);
         TextView des = findViewById(R.id.textView);
+
         user user1 = (user) getIntent().getSerializableExtra("key");
         name.setText(user1.name);
         des.setText(user1.description);
         follow.setText(user1.followed ? "unfollow" : "follow");
+
         follow.setOnClickListener(new View.OnClickListener(){
             @SuppressLint("SetTextI18n")
             @Override
@@ -47,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent messageIntent = new Intent(MainActivity.this, MessageGroup.class);
+                startActivity(messageIntent);
+            }
         });
     }
 }
