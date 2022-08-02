@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Projects/mad22-practical-6---storage-JasonHeoJung/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Projects/mad22-practical-6---storage-JasonHeoJung/app/src/main/res/layout/activity_main.xml" value="0.12158054711246201" />
+        <entry key="..\:/Projects/mad22-practical-6---storage-JasonHeoJung/app/src/main/res/layout/activity_message_group.xml" value="0.12158054711246201" />
+        <entry key="..\:/Projects/mad22-practical-6---storage-JasonHeoJung/app/src/main/res/layout/fragment_group_1.xml" value="0.12158054711246201" />
+        <entry key="..\:/Projects/mad22-practical-6---storage-JasonHeoJung/app/src/main/res/layout/fragment_group_1_.xml" value="0.12158054711246201" />
+        <entry key="..\:/Projects/mad22-practical-6---storage-JasonHeoJung/app/src/main/res/layout/fragment_group_2_.xml" value="0.12158054711246201" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android API 32 Platform" project-jdk-type="Android SDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
